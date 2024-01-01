@@ -12,10 +12,10 @@ export default async function Home() {
   // const data = await getData();
   // console.log(data);
   const popularFilm = await movieData();
-  console.log(popularFilm);
+  // console.log(popularFilm);
   // await movieData()
-  console.log(process.env.API_KEY);
-  
+
+
   return (
     <div>
       <Link href='/hakkimizda'>Hakkımızda</Link>
@@ -30,16 +30,17 @@ export default async function Home() {
         },
       }}>Hakkımızda obje ile</Link>
       <div style={{ display: "flex" }}>
-      {popularFilm?.map((item,i) => (
-        <div  key={i}>
-          <h1>{item.l}</h1>
-          <h1>{item.q}</h1>
-          {/* <h3>{item.i.height}</h3> */}
-          <img width={"200px"} src={item.i?.imageUrl} alt="image" />
-        </div>
-      )
-      )}  
-</div>
+        {popularFilm?.map((item, i) => (
+          <div key={i}>
+            <h1>{item.l}</h1>
+            <h1>{item.q}</h1>
+            {/* <h3>{item.i.height}</h3> */}
+            <img width={"200px"} src={item.i?.imageUrl} alt="image" />
+            <Link href={`/docs/${item.id}`} >random</Link>
+          </div>
+        )
+        )}
+      </div>
 
     </div>
 
